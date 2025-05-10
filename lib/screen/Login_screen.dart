@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'MainMenu_screen.dart';
-import '../widget/custom_text_field.dart';
+import 'package\:flutter/material.dart';
+import 'package\:get\_storage/get\_storage.dart';
+import 'package\:latihan\_login/screen/Profil\_screen.dart';
+import 'package\:shared\_preferences/shared\_preferences.dart';
+import 'MainMenu\_screen.dart';
+import '../widget/custom\_text\_field.dart';
 import '../utils/constants.dart';
-import 'register_screen.dart';
+import 'register\_screen.dart';
+import 'package\:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -80,7 +83,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     backgroundColor: kSecondaryColor(context),
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: _login,
+                  onPressed: () {
+                    final box = GetStorage();
+                    box.write('email', emailController.text);
+                    Get.to(() => MainMenuScreen(email: '', password: ''));
+                  },
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                     child: Text('Login'),
@@ -89,12 +96,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RegisterScreen(),
-                      ),
-                    );
+                    Get.to(() => RegisterScreen());
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => const RegisterScreen(),
+                    //   ),
+                    // );
                   },
                   child: const Text('Belum punya akun? Daftar di sini'),
                 ),

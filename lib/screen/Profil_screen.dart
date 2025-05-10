@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:provider/provider.dart';
-import '../theme/theme_provider.dart';
+import 'package\:flutter/material.dart';
+import 'package\:shared\_preferences/shared\_preferences.dart';
+import 'package\:provider/provider.dart';
+import '../theme/theme\_provider.dart';
 import '../utils/constants.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -50,17 +50,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor(context),
-      appBar: AppBar(
-        title: const Text("Profil Saya"),
-        backgroundColor: kSecondaryColor(context),
-      ),
       body: ListView(
         children: [
           const SizedBox(height: 20),
           Center(
             child: CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/profile_default.png'),
+              backgroundImage: AssetImage('assets/logo.png'),
             ),
           ),
           const SizedBox(height: 16),

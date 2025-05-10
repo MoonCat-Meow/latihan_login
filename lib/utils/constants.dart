@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package\:flutter/material.dart';
 
 Color kPrimaryColor(BuildContext context) =>
-    Theme.of(context).scaffoldBackgroundColor;
+Theme.of(context).scaffoldBackgroundColor;
 
 Color kSecondaryColor(BuildContext context) =>
-    Theme.of(context).primaryColor; // fallback
+Theme.of(context).primaryColor; // fallback
